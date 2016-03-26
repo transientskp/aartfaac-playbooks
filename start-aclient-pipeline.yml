@@ -1,0 +1,7 @@
+---
+- name: Start aclient for the pipelines
+  hosts: pipelines
+  remote_user: fhuizing
+  tasks:
+     - name: Execute the daemon
+       command: sh start_client.sh pipeline

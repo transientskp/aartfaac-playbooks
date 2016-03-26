@@ -1,0 +1,53 @@
+# ansible-playbook *.yml --ask-become-pass -f 5
+---
+- hosts: pipelines servers
+  remote_user: fhuizing
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: update caches
+      apt: update_cache=yes cache_valid_time=3600
+    - name: install build-essential
+      apt: name=build-essential state=present
+    - name: install cmake
+      apt: name=cmake state=present
+    - name: install cmake gui
+      apt: name=cmake-curses-gui state=present
+    - name: install git
+      apt: name=git state=present
+    - name: install g++
+      apt: name=g++ state=present
+    - name: install fortran
+      apt: name=gfortran state=present
+    - name: install ncurses
+      apt: name=libncurses5-dev state=present 
+    - name: install readline
+      apt: name=libreadline-dev state=present
+    - name: install flex
+      apt: name=flex state=present
+    - name: install bison
+      apt: name=bison state=present
+    - name: install blas
+      apt: name=libblas-dev state=present
+    - name: install lapack
+      apt: name=liblapacke-dev state=present
+    - name: install fitsio
+      apt: name=libcfitsio3-dev state=present
+    - name: install wcslib
+      apt: name=wcslib-dev state=present
+    - name: install hdf5
+      apt: name=libhdf5-serial-dev state=present
+    - name: install fftw3
+      apt: name=libfftw3-dev state=present
+    - name: install python-numpy
+      apt: name=python-numpy state=present
+    - name: install libboost-python
+      apt: name=libboost-python-dev state=present
+    - name: install libpython
+      apt: name=libpython2.7-dev state=present
+    - name: install libqt4
+      apt: name=libqt4-dev state=present
+    - name: install build-essential
+      apt: name=libcppunit-dev state=present
+    - name: install libboost-program-options-dev
+      apt: name=libboost-program-options-dev state=present
