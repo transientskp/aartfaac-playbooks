@@ -1,0 +1,8 @@
+# ansible-playbook install-munin.yml --ask-become-pass -f 5
+---
+- hosts: pipelines servers correlators
+  remote_user: fhuizing
+  become: yes
+  become_method: sudo
+  roles:
+    - role: configure-munin-node
